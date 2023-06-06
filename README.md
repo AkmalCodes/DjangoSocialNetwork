@@ -1,0 +1,2 @@
+# DjangoSocialNetwork
+college assignment
