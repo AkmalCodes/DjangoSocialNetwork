@@ -1,0 +1,133 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<head>
+  <title>College Social Network</title>
+  {% block head %}
+  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  {% endblock %}
+</head>
+
+<header>{% include 'socialnetworkapp/navbar.html' %}</header>
+
+  <body>
+    <main>
+    <div class="createpost-wrapper">
+        <div class="post-head">
+            <h1> Create a chat</h1>
+        </div>
+        <div class="create-posts">
+            <div class="posts-child">
+                <div class="posts-create-top">
+                  <form class="form-createchatroom" method="post" action="">
+                    {% csrf_token %}
+                    {% render_field form.recipient placeholder="Enter username you want to chat with" id+="form-control" %}
+                    <div class="bottom-container-createchat">
+                        <input id="submit" type="submit" value="Submit"/>
+                    </div>
+                    <ul id="user-list"></ul>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    {% if form.errors.recipient %}
+                        <div class="error-message">{{ form.errors.recipient }}</div>
+                    {% endif %}
+</body>
+
+<footer>{% include 'socialnetworkapp/footer.html' %}</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var currentUsername = '{{ request.user.username }}';
+
+    $('#form-control').on('input', function() {
+      var searchQuery = $(this).val();
+      if (searchQuery.length >= 3) {
+        $.ajax({
+          url: '{% url 'search_users' %}',
+          method: 'GET',
+          data: { search_query: searchQuery },
+          success: function(data) {
+            var userList = $('#user-list');
+            userList.empty(); // Clear the existing user list
+            if (data.length > 0) {
+              data.forEach(function(user) {
+                if (user.username !== currentUsername) { // Exclude the current user
+                  var listItem = $('<li>').text(user.username).attr('id', 'user-' + user.id).css('cursor', 'pointer');
+                  listItem.on('click', function(event) {
+                    $('#form-control').val(user.username); // Replace text in the text field
+                    if (event.target.id.startsWith('user-')) {
+                      userList.hide(); // Hide the user list after clicking a list element
+                    }
+                  });
+                  listItem.appendTo(userList); // Append new user <li> to the parent <ul> or <ol>
+                }
+              });
+              userList.show();
+            } else {
+              userList.hide();
+            }
+          }
+        });
+      } else {
+        $('#user-list').hide();
+      }
+    });
+  });
+</script>
+<style>
+
+  .error-message {
+    color: red;
+}
+
+  .bottom-container-createchat { 
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-createpost {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  #form-control{
+      height: 60px;
+      margin:10px 15px;
+      padding:10px 15px;
+      resize:none;
+      width:90%;
+      border-radius:15px;
+  }
+  .createpost-wrapper{
+      border-radius:30px;
+      background-color: white;
+      width:50%;
+  }
+  
+  .createpost-wrapper #submit{
+      background-color: #3ac5e0;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+
+  .createpost-wrapper #submit:hover {
+      background-color: #42d7f5;
+  }
+
+  .createpost-wrapper h1{
+      text-align: center;
+  }
+
+</style>

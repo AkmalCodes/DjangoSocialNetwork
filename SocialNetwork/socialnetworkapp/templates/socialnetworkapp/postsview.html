@@ -1,0 +1,217 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<head>
+  {% block head %}
+
+  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  {% endblock %}
+</head>
+
+  <div class="content-wrapper">
+  <header>{% include 'socialnetworkapp/navbar.html' %}</header>
+  <main flex-direction="column">
+    <div class="posts" width='70%'>
+      <div class="posts-child">
+        <div class="posts-top">
+          <div class="userimg">
+            <a href="#">
+              <img src="{{ user.userprofile.profile_picture.url }}"
+              alt="Profile Picture"
+              width="40px"
+              height="40px">
+            </a>
+          </div>
+          <div class="post-user-docreation-tocreation">
+            <p id="post-author">
+              created by 
+              <a href="#">@{{post.uid}}</a>
+            </p>
+            <p id="post-doc">{{post.created_date}}</p>
+            <p id="post-toc">{{post.created_time}}</p>
+          </div>
+        </div>
+        <div class="posts-title">
+          <p>
+            {{post.title}}
+          </p>
+        </div>
+        <div class="posts-content">
+          <p>
+            {{post.content}}
+          </p>
+        </div>
+        <div class="reaction-bar">
+            <p>
+              <button id="button">share</button>
+              <button id="submit">like</button>
+              <button id="report">report</button>
+              {% if post.uid == request.user %}
+            <form class="form-delete_post" action="{% url 'delete_post' post.id %}" method="post" onsubmit="return confirmDelete();">
+            {% csrf_token %}
+              <button id="delete" type="submit" >delete</button>
+            </form>
+            {% endif %}
+            </p>
+          </div>
+          <div class="comment-display">
+            <form method="POST" id="comment-form">
+              {% csrf_token %}
+              {% render_field comment_form.content rows="1" cols="20" placeholder="  enter your Comment" class+="comment-formcontrol" %}
+              <button id="submit-comment" type="submit">Submit</button>
+            </form>
+          </div>
+    </div>
+    
+    <div class="comments">
+      {% for comment in comments %}
+        <div class="comment">
+          <div class="comments upper"> 
+            <p>By: @{{ comment.uid.username }}</p>
+            <p>Date: {{ comment.created_date }}</p>
+            <p>Time: {{ comment.created_time }}</p>
+            {% if request.user == comment.uid %}
+            <form method="POST" action="{% url 'delete_comment' comment.id %}" onsubmit="return confirmDelete()">
+                {% csrf_token %}
+                <button id="delete" type="submit">Delete</button>
+              </form>
+            {% endif %}
+          </div>
+          <div class="comments lower">
+            <p>{{ comment.content }}</p>
+          </div>
+        </div>
+      {% endfor %}
+      
+    </div>
+  </main>
+</div>
+  <div class="emptyspace-posts"></div>
+
+  <footer>
+    {% include 'socialnetworkapp/footer.html' %}
+  </footer>
+
+  <script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this post?"); // inbuilt browser pop-up
+    }
+  </script>
+
+
+
+  <style>
+
+    .comment-formcontrol::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    
+    /* Background color of the scrollbar track */
+    .comment-formcontrol::-webkit-scrollbar-track {
+      background: #2e2e2e;
+    }
+    
+    /* Color of the scrollbar handle */
+    .comment-formcontrol::-webkit-scrollbar-thumb {
+      background: #ffffff;
+      border-radius: 20px;
+    }
+    
+    /* Hover state of the scrollbar handle */
+    .comment-formcontrol::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      transition: 0.5s;
+    }
+    
+    .upper{
+    display: flex;
+    align-items: left;
+    justify-content: start;
+    width: 100%;
+    }
+
+    .comment p{
+    margin:0 20px;
+    }
+
+    .lower{
+      display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+
+    }
+    .comments{
+      margin:0px auto;
+      padding:20px auto
+      position: relative;
+      transform : translateY(0%);
+    }
+    
+    .comment{
+      width: 100%;
+      margin-top: 30px ;
+      padding:15px 0 ;
+      background-color: #f9f9f9;
+      border-radius: 20px;
+      align-items:  center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      max-height: 120%;
+    }
+
+    .emptyspace-posts {
+      margin: 100px 0;
+      padding: 100px 0;
+    }
+    
+    #delete {
+      background-color: #f55742;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 1px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #delete:hover {
+      background-color: #f71d00;
+    }
+    .form-delete_post {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding: 16px 0 0 4px;
+    }
+    
+    .comment-formcontrol {
+      margin: 10px 15px;
+      padding: 3px 15px;
+      height:60px;
+      resize: none;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      width:inherit;
+    }
+    #comment-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      width:inherit;
+    }
+  </style>
+
+
+
+
+
+
+
+
+
+

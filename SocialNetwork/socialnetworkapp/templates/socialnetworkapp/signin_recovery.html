@@ -1,0 +1,29 @@
+
+<html>
+    <head>
+
+
+        {% block head %}
+        
+        <link
+          rel="stylesheet"
+          href="{% static 'socialnetworkapp/styles.css' %}"
+        />
+        {% endblock %}
+      </head>
+    <body>
+        <form class="form-box" style="width: 500px; height:250px;">
+            <h2>Password Recovery</h2>
+            <div id="email">
+                <img src="resources/email.png" alt="email">
+                <input type="text" placeholder="email" required>
+            </div>
+            <div id="password-recovery-label">
+                <p>enter your email to recieve a password recovery link</p>
+            </div>
+            <div id="buttons">
+                <button onclick= "window.location.href = 'signin.html';">Recover</button>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %} {% load widget_tweaks %}
+<head>
+  <script src="{% static 'js/scripts.js' %}"></script>
+  {% block head %}
+
+  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  {% endblock %}
+</head>
+
+<body>
+  <header>{% include 'socialnetworkapp/navbar.html' %}</header>
+  <main>
+    <div id="profile-grid">
+      <div id="profile-img">
+        <img
+          src="{{ user.userprofile.profile_picture.url }}"
+          alt="Profile Picture"
+          width="40px"
+          height="40px"
+        />
+      </div>
+      <div id="Full-Name1">
+        <h2>Full Name:</h2>
+      </div>
+      <div id="Full-Name2">
+        <p>{{user.get_full_name}}</p>
+      </div>
+      <div id="uid1">
+        <h2>UID:</h2>
+      </div>
+      <div id="uid2">
+        <p>{{user.username}}</p>
+      </div>
+      <div id="Email1">
+        <h2>E-mail:</h2>
+      </div>
+      <div id="Email2">
+        <p>{{user.email}}</p>
+      </div>
+      <div id="Faculty1">
+        <h2>Faculty:</h2>
+      </div>
+      <div id="Faculty2">
+        <p>{{ user.userprofile.faculty }}</p>
+      </div>
+      <div id="Major1">
+        <h2>Major:</h2>
+      </div>
+      <div id="Major2">
+        <p>{{ user.student.major }}</p>
+      </div>
+      <div id="Hobbies1">
+        <h2>Hobbies:</h2>
+      </div>
+      <div id="Hobbies2">
+        <p>{{ user.student.hobbies }}</p>
+      </div>
+      <div id="password1">
+        <a href="{% url 'profile_edit' %}"><p>EDIT</p></a>
+      </div>
+      <div id="empty-div"></div>
+    </div>
+    <div class="emptyspace-posts"></div>
+  </main>
+
+  <footer>{% include 'socialnetworkapp/footer.html' %}</footer>
+</body>

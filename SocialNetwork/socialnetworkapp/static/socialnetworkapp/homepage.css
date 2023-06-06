@@ -1,0 +1,868 @@
+/* CSS styles for the layout */
+
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Background color of the scrollbar track */
+body::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+
+/* Color of the scrollbar handle */
+body::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+/* Hover state of the scrollbar handle */
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  transition: 0.5s;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+html {
+  height: 100vh;
+  max-height: 100vh;
+}
+
+body {
+  font-family: rubik, arial;
+  background-color: #9cd5e0;
+  height: inherit;
+  width: inherit;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  flex-grow: 2;
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 0px 200px 0px 30px;
+}
+
+header {
+  position: relative;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.main-wrapper {
+  width: 80%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-content {
+  padding: 0 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.footer-section h3 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.footer-section p {
+  margin-top: 6px;
+}
+
+.footer-section img {
+  margin-bottom: 6px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  min-height: 50px;
+  max-height: 80px;
+}
+
+.nav1 {
+  padding: auto 0;
+}
+
+.nav2 {
+  margin: auto 30px;
+  padding: auto 0;
+  display: flex;
+}
+
+.logo h1 {
+  right: 3%;
+  top: 3%;
+  margin: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: right;
+}
+
+.nav1 {
+  display: flex;
+  align-items: center;
+}
+
+.nav2 ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.nav2 li {
+  margin-right: 10px;
+  display: inline-block;
+  justify-content: flex-start;
+  min-height: 10px;
+  max-height: 20px;
+}
+
+.nav2 ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+.nav2 ul li a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  /* Adjust the height of the line as desired */
+  background: #9cd5e0;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  /* Adjust the positioning of the line as desired */
+  transition: width 0.5s;
+  /* Change the transition property to width */
+  border-radius: 20px;
+}
+
+.nav2 ul li a:hover::after {
+  width: 100%;
+}
+
+.nav2 ul li a:visited {
+  color: black;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: 0.55s;
+}
+
+.noti-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.noti-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.noti-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 15px;
+}
+
+.noti-dropdown-content a:hover {
+  background-color: #ddd;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+.noti-dropdown:hover .noti-dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  color: white;
+  margin-left: 30px;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 15px;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+main {
+  height: fit-content;
+  padding: 50px;
+  margin: 0 20px;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posts {
+  width: 80%;
+  background-color: #f9f9f9;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  position: relative;
+  max-height: inherit;
+  overflow: hidden;
+}
+
+.posts-title p {
+  padding: 10px 20px;
+}
+
+.posts-content p {
+  padding: 10px 20px;
+}
+
+.post-background {
+  width: inherit;
+  height: inherit;
+}
+
+.posts-child {
+  width: 100%;
+  position: relative;
+}
+
+.posts-top {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  min-height: 50px;
+  max-height: 80px;
+  width: auto;
+}
+
+.posts-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.posts-top .userimg {
+  margin: 10px 30px;
+}
+
+.post-user-docreation-tocreation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-user-docreation-tocreation p {
+  margin: 0 10px;
+  font-size: 12px;
+}
+
+.reaction-bar {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.reaction-bar button {
+  background-color: #3ac5e0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reaction-bar button:hover {
+  background-color: #42d7f5;
+}
+
+.reaction-bar button:focus {
+  outline: none;
+}
+
+.reaction-bar button:active {
+  background-color: #42d7f5;
+}
+
+.reaction-bar #delete {
+  background-color: #f55742;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.reaction-bar #delete:hover {
+  background-color: #f71d00;
+}
+.form-delete_post {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 16px 0 0 4px;
+}
+
+#report {
+  background-color: #f55742;
+}
+
+#report:hover {
+  background-color: #f71d00;
+}
+
+.comment-display {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: stretch;
+}
+
+#comment-textarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* Adjust the height as needed */
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  position: relative;
+  resize: none;
+}
+
+#submit-comment {
+  border: 1px solid #f9f9f9;
+  color: #020202;
+  border: 2px;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+#submit-comment:hover {
+  border: 1px solid #00c9f1;
+}
+
+#comment-display {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+#comment-user-docreation-tocreation {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#comment-user-docreation-tocreation p {
+  margin: 0 10px;
+  font-size: 12px;
+}
+
+#top-comment {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  min-height: 30px;
+  max-height: 40px;
+  width: auto;
+}
+
+#img {
+  margin: 10px 30px;
+}
+
+#bottom-comment {
+  padding: 0 30px;
+}
+
+.posts-create-top .form-createpost {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#password-recovery-label span {
+  font-size: 6px;
+}
+
+.posts-create-top button:hover span {
+  color: black;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: end;
+}
+
+#post-button {
+  width: 100px;
+}
+
+
+#chatroomchats-container {
+  width: 60%;
+  height: 550px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  overflow: visible;
+}
+
+#chatroomchats-header {
+  grid-area: chatroomchats1;
+  background-color: rgb(255, 255, 255);
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  height: 20px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#chatroomchats-bottom {
+  grid-area: chatroomchats3;
+  height: 100px;
+  position: relative;
+  grid-column: 1/9;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+#chatroomchats-content {
+  padding: 20px 30px;
+  grid-area: chatroomchats2;
+  grid-column: 1/9;
+  background-color: rgba(255, 255, 255, 0.712);
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.chatroomchats-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "chatroomchats1"
+    "chatroomchats2"
+    "chatroomchats3"
+    ;
+}
+
+.chatroomchats-grid .chat-item1{
+  text-align: right;
+  background-color:rgba(114, 248, 192, 0.589);
+  border-radius: 20px;
+  padding:1px 30px;
+  margin:10px 10px 0 150px;
+}
+
+.chatroomchats-grid .chat-item2{
+  text-align: left;
+  background-color:rgba(250, 108, 108, 0.336);
+  border-radius: 20px;
+  padding:1px 30px;
+  margin:10px 150px 0 10px;
+}
+
+#chatroom-container {
+  width: 60%;
+  height: 550px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  overflow: visible;
+}
+
+#chatroom-container {
+  width: 60%;
+  height: 550px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  overflow: visible;
+}
+
+#chatroom-header {
+  background-color: rgb(255, 255, 255);
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  height: 40px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#chatroom-nav {
+  padding: 20px 5px;
+  grid-area: nav;
+  grid-column: 1/9;
+  background-color: rgba(255, 255, 255, 0.712);
+  height: 500px;
+}
+
+.chatroom-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "nav"
+    "nav-right"
+    ;
+}
+
+.chatroom-grid a {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  width: 20%;
+  text-align: center;
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
+  border: 1px transparent;
+}
+
+.chatroom-grid a:hover {
+  background-color: rgba(176, 242, 255, 0.336);
+
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.chatname-container {
+  display: flex;
+  justify-content: center;
+}
+
+.chatname-container h4 {
+  font-size: 10px;
+}
+
+.chat-recipient {
+  margin: 0 auto;
+}
+
+#chat {
+  flex-direction: column;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#chat h5 {
+  padding-left: 5px;
+}
+
+#chatroom-content {
+  grid-area: nav-right;
+  height: 100px;
+  position: relative;
+  grid-column: 1/9;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+
+#id-search {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  height: 50px;
+  width: 300px;
+  padding: 0 30px;
+  margin: 0 10px;
+  border-radius: 50px;
+}
+
+
+
+#user-list {
+  position: absolute;
+  top: 100%;
+  transform: translate(15px, -50px);
+  left: 0;
+  z-index: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+#user-list li {
+  border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#user-list li:hover {
+  background-color: #ebebeb;
+}
+
+#create-chat {
+  position: relative;
+  width: 20%;
+}
+
+#create-chat:hover {
+  position: relative;
+  width: 20%;
+}
+
+#profile-grid {
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  height: fit-content;
+  width: 40%;
+  min-width: 30%;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "profile-img profile-img"
+    "Full-Name1 Full-Name2"
+    "uid1 uid2"
+    "Email1 Email2"
+    "Faculty1 Faculty2"
+    "Major1 Major2"
+    "Hobbies1 Hobbies2"
+    "password1 passwword1"
+    "empty-div empty-div";
+}
+#profile-grid button {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+}
+#profile-grid h2 {
+  font-size: 12px;
+}
+
+#profile-grid p {
+  font-size: 12px;
+}
+
+#profile-img {
+  grid-area: profile-img;
+  grid-column: 4/11;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+#profile-img img {
+  margin: 20px;
+}
+#profile-img button {
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: none;
+}
+
+#profile-img button:hover {
+  border-radius: 20px;
+  background-color: #84ebff;
+  border: none;
+}
+
+#Full-Name1 {
+  grid-area: Full-Name1;
+  grid-column: 5/9;
+  overflow: hidden;
+}
+
+#Full-Name2 {
+  grid-area: Full-Name2;
+  grid-column: 8/12;
+  overflow: hidden;
+}
+#uid1 {
+  grid-area: uid1;
+  grid-column: 5/9;
+  overflow: hidden;
+}
+
+#uid2 {
+  grid-area: uid2;
+  grid-column: 8/12;
+  overflow: hidden;
+}
+
+#Email1 {
+  grid-area: Email1;
+  grid-column: 5/9;
+  overflow: hidden;
+}
+
+#Email2 {
+  grid-area: Email2;
+  grid-column: 8/12;
+  overflow: hidden;
+}
+
+#Faculty1 {
+  grid-area: Faculty1;
+  grid-column: 5/9;
+  overflow: hidden;
+}
+
+#Faculty2 {
+  grid-area: Faculty2;
+  grid-column: 8/12;
+  overflow: hidden;
+}
+
+#Major1 {
+  grid-area: Major1;
+  grid-column: 5/9;
+  overflow: hidden;
+}
+
+#Major2 {
+  grid-area: Major2;
+  grid-column: 8/12;
+  overflow: hidden;
+}
+
+#Hobbies1 {
+  grid-area: Hobbies1;
+  grid-column: 5/9;
+  overflow: hidden;
+}
+
+#Hobbies2 {
+  grid-area: Hobbies2;
+  grid-column: 8/12;
+  overflow: hidden;
+}
+
+#password1 {
+  grid-area: password1;
+  grid-column: 7/11;
+  overflow: display;
+  display: block;
+  padding: 10px 0;
+
+  justify-content: start;
+  flex-direction: column;
+}
+
+#empty-div {
+  height: 10vh;
+  grid-area: empty-div;
+}
+#password1 p {
+  font-size: 12px;
+  width: 60px;
+  text-align: center;
+}
+
+#password1 a {
+  background-color: #3ac5e0;
+  position: absolute;
+  align-items: center;
+  width: 60px;
+  height: 40px;
+  transition: 0.5s ease-in-out;
+  transform: translateX(-10px);
+  border-radius: 15px;
+}
+
+#password1 a:hover {
+  background-color: #84ebff;
+  font-size: 12px;
+  align-items: center;
+}
+
+.emptyspace-posts {
+  flex-grow: 2;
+}
+.emptyspace-posts1 {
+  flex-grow: 2;
+}

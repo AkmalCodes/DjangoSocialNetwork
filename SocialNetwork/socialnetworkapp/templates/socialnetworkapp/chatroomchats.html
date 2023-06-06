@@ -1,0 +1,52 @@
+{% load static %}
+
+<head>
+  <title>College Social Network</title>
+  {% block head %}
+  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  {% endblock %}
+</head>
+<header>{% include 'socialnetworkapp/navbar.html' %}</header>
+<main>
+  <div id="chatroomchats-container">
+    <div id="chatroomchats-header">
+      <h2>Chatroom</h2>
+    </div>
+    <div class="chatroomchats-grid">
+      <div id="chatroomchats-content">
+        {% for chat in chats %}
+  {% if request.user.username == chat.uid.username %}
+    <div class="chat-item1">
+      <p>{{ chat.chat_content }}</p>
+      <p>Created on: {{ chat.created_date }} at {{ chat.created_time }}</p>
+    </div>
+  {% else %}
+    <div class="chat-item2">
+      <p>{{ chat.chat_content }}</p>
+      <p>Created on: {{ chat.created_date }} at {{ chat.created_time }}</p>
+    </div>
+  {% endif %}
+{% empty %}
+  <p>No chats available.</p>
+{% endfor %}
+      </div>
+      <div id="chatroomchats-bottom">
+        <form method="post" action="{% url 'add_chat' chatroom_id=chatroom.id %}">
+          {% csrf_token %}
+          <input id="chatbox" type="text" name="chat_content" placeholder="Type your message" required>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+<footer>{% include 'socialnetworkapp/footer.html' %}
+  
+</footer>
+
+<style>
+
+</style>

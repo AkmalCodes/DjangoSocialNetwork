@@ -1,0 +1,17 @@
+{% block content %}
+<h1>Create Comment</h1>
+<form method="post" action="{% url 'create_comment' post.id %}">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Submit</button>
+</form>
+<h2>Comments:</h2>
+{% for comment in comments %}
+<div class="comment">
+  <p>{{ comment.content }}</p>
+  <p>By: {{ comment.uid }}</p>
+  <p>Date: {{ comment.created_date }}</p>
+  <p>Time: {{ comment.created_time }}</p>
+</div>
+{% empty %}
+<p>No comments yet.</p>
+{% endfor %} {% endblock %}

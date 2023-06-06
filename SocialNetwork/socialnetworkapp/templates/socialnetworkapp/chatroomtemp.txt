@@ -1,0 +1,9 @@
+
+  <div id="chatroom-content-top">
+  
+  </div>
+  <div id="chatroom-content-bottom">
+    
+  </div>
+</div>
+<div id="chatroom-bottom">

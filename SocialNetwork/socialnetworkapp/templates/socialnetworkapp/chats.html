@@ -1,0 +1,7 @@
+{% for chat in chats %}
+  <div class="chat">
+    <p>{{ chat.chat_content }}</p>
+  </div>
+{% empty %}
+  <p>No chats available.</p>
+{% endfor %}

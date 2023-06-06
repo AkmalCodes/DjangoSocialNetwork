@@ -1,0 +1,87 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<head>
+    {% block head %}
+    <link
+      rel="stylesheet"
+      href="{% static 'socialnetworkapp/homepage.css' %}"
+    />
+    {% endblock %}
+</head>
+<style>
+
+</style>
+
+
+<header>{% include 'socialnetworkapp/navbar.html' %}</header>
+<body>
+    <main>
+    <div class="createpost-wrapper">
+        <div class="post-head">
+            <h1> Create a post</h1>
+        </div>
+        <div class="create-posts">
+            <div class="posts-child">
+                <div class="posts-create-top">
+                    <form class="form-createpost" method="post" action="">
+                        {% csrf_token %}
+                        {% render_field form.title rows="1" cols="20" placeholder="  enter your title" class+="form-control" %}
+                        {% render_field form.content rows="20" cols="20" placeholder="  enter your post content here" class+="form-control" %}
+                    <div class="bottom-container">
+                        <input id="submit" type="submit" value="Submit"/>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+</body>
+
+<footer>
+    {% include 'socialnetworkapp/footer.html' %}
+  </footer>
+
+<style>
+    .form-createpost {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .form-control{
+        margin:10px 15px;
+        padding:10px 15px;
+        resize:none;
+        width:90%;
+        border-radius:15px;
+    }
+    .createpost-wrapper{
+        border-radius:30px;
+        background-color: white;
+        width:50%;
+    }
+    
+    .createpost-wrapper #submit{
+        background-color: #3ac5e0;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .createpost-wrapper #submit:hover {
+        background-color: #42d7f5;
+    }
+
+    .createpost-wrapper h1{
+        text-align: center;
+    }
+
+</style>

@@ -1,0 +1,16 @@
+
+{% load static %}
+
+<ul id="chatroom-list">
+  {% for chatroom in chatrooms %}
+    <li>
+        {% if chatroom.uid.username == request.user.username %}
+          <h4>{{ chatroom.recipient }}</h4>
+        {% elif chatroom.recipient == request.user.username %}
+          <h4>{{ chatroom.uid }}</h4>
+        {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+
