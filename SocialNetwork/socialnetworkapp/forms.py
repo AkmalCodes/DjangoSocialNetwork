@@ -35,15 +35,11 @@ class CommentForm(forms.ModelForm):
         fields = ['content']
 
 class UserProfileForm(forms.ModelForm):
+    profile_picture = forms.ImageField(label='profile picture')
+   
     class Meta:
         model = UserProfile
-        exclude = ['user']
-        widgets = {
-            'profile_picture': forms.FileInput(attrs={'class': 'form-control'}),
-            'faculty': forms.TextInput(attrs={'class': 'form-control'}),
-            'hobbies': forms.TextInput(attrs={'class': 'form-control'}),
-            'major': forms.TextInput(attrs={'class': 'form-control'}),
-        }
+        fields = ('profile_picture',)
 
 class UserPasswordChangeForm(PasswordChangeForm):
     def __init__(self, *args, **kwargs):

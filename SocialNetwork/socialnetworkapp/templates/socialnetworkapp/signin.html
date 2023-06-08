@@ -20,11 +20,9 @@
       {% csrf_token %}
       <h2>Sign-in</h2>
       <div id="user">
-        <img src="{% static 'socialnetworkapp/resources/user.png' %}" alt="username" />
         <input type="text" name="username" placeholder="Enter Username" required />
       </div>
       <div id="pass">
-        <img src="{% static 'socialnetworkapp/resources/password.png' %}" alt="password" />
         <input type="password" name="password" placeholder="Enter Password" required />
       </div>
       <p id="forgotpass">

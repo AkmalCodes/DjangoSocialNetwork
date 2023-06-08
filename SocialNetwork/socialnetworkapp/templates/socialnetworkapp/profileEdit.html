@@ -10,60 +10,41 @@
 
   <main>
     <div class="main-wrapper">
-      <div id="profile-grid">
-        <h2>Edit Profile</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  
-  {{ profile_form.non_field_errors }}
-  
-  <div class="form-group">
-    {{ profile_form.profile_picture.label_tag }}
-    {{ profile_form.profile_picture }}
-  </div>
-  
-  <div class="form-group">
-    {{ profile_form.faculty.label_tag }}
-    {{ profile_form.faculty }}
-  </div>
-  
-  <div class="form-group">
-    {{ profile_form.hobbies.label_tag }}
-    {{ profile_form.hobbies }}
-  </div>
-  
-  <div class="form-group">
-    {{ profile_form.major.label_tag }}
-    {{ profile_form.major }}
-  </div>
-  
-  <hr>
-  <h3>Change Password</h3>
-  
-  {{ password_form.non_field_errors }}
-  
-  <div class="form-group">
-    {{ password_form.old_password.label_tag }}
-    {{ password_form.old_password }}
-  </div>
-  
-  <div class="form-group">
-    {{ password_form.new_password1.label_tag }}
-    {{ password_form.new_password1 }}
-  </div>
-  
-  <div class="form-group">
-    {{ password_form.new_password2.label_tag }}
-    {{ password_form.new_password2 }}
-  </div>
-  
-  <button type="submit">Save Changes</button>
-</form>
+      <form id="profileEditform" method="post" enctype="multipart/form-data">
+        <h2 id="editprofileheader-grid">Edit Profile</h2>
+        {% csrf_token %} {{ profile_form.non_field_errors }}
 
-      </div>
+        <div class="profilepicure">
+          <img
+            id="profile-picture"
+            src="{{ user.userprofile.profile_picture.url }}"
+            alt="Profile Picture"
+            width="80px"
+            height="80px"
+            style="border-radius: 50%;"
+          />
+  
+          {{profile_form.profile_picture}}
+        </div>
+
+        <div id="saveprofile">
+          <button id="saveprofile" type="submit">Save Changes</button>
+        </div>
+
+      </form>
     </div>
   </main>
 </div>
 <br />
 <footer>{% include 'socialnetworkapp/footer.html' %}</footer>
-<style></style>
+<style>
+  .hobbies-control {
+    width:200px;
+    height:40px;
+    resize:none;
+    border-radius:50px;
+    padding:10px;
+  }
+</style>
+
+

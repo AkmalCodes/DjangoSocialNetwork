@@ -1,10 +1,12 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash,authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.urls import reverse_lazy
 from .models import *
 from .forms import *
 
@@ -32,6 +34,10 @@ def loginpage(request):
             messages.error(request, 'Invalid username or password')
 
     return render(request, 'socialnetworkapp/signin.html')
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('profile_edit') # redirect to profile_edit page
 
 @login_required
 def logoutuser(request):
@@ -174,29 +180,24 @@ def profile_edit(request):
     }
     return render(request, 'socialnetworkapp/profileEdit.html', context)
 
-    
 @login_required
 def profile_edit(request):
     user_profile = request.user.userprofile
-
     if request.method == 'POST':
         profile_form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
-        password_form = UserPasswordChangeForm(request.user, request.POST)
-        if profile_form.is_valid() and password_form.is_valid():
+        if profile_form.is_valid():
+            profile_form.user = request.user
             profile_form.save()
-            password_form.save()
-            update_session_auth_hash(request, request.user)  # To keep the user logged in
-            messages.success(request, 'Your profile has been updated successfully.')
+        
             return redirect('profile_edit')
     else:
         profile_form = UserProfileForm(instance=user_profile)
-        password_form = UserPasswordChangeForm(request.user)
 
     context = {
         'profile_form': profile_form,
-        'password_form': password_form,
     }
     return render(request, 'socialnetworkapp/profileEdit.html', context)
+
 
 @login_required
 def search_users(request):

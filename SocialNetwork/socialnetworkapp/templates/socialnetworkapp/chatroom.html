@@ -20,14 +20,13 @@
         <div id="chat">
           {% for chatroom in chatrooms %}
             {% if chatroom.uid.username == request.user.username %}
-            <a href="{% url 'chatroomchats' chatroom.id %}"><h4>{{ chatroom.recipient }}</h4></a>
+            <a href="{% url 'chatroomchats' chatroom.id %}"><h6>{{ chatroom.recipient }}</h6></a>
             {% elif chatroom.recipient == request.user.username %}
-            <a href="{% url 'chatroomchats' chatroom.id %}"><h4>{{ chatroom.uid }}</h4></a>
+            <a href="{% url 'chatroomchats' chatroom.id %}"><h6>{{ chatroom.uid }}</h6></a>
             {% endif %}
           {% endfor %}
         </div>
         
-
       </div>
       <div id="chatroom-content">
         <a href="{% url 'chatroomform' %}" id="create-chat">Create chat</a>

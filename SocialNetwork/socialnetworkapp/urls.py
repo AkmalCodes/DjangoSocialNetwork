@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views 
 
 urlpatterns = [
@@ -17,7 +18,8 @@ urlpatterns = [
     path('chatroom/<int:chatroom_id>/add_chat/', views.add_chat, name='add_chat'),
     path('userprofile/', views.userprofile, name="userprofile"),
     path('profile/edit/', views.profile_edit, name='profile_edit'),
+    # path('profile/edit/password', auth_views.PasswordChangeView.as_view(template_name='socialnetworkapp/profilechangepassword.html')),
+    path('password/',views.PasswordsChangeView.as_view(template_name='socialnetworkapp/profilechangepassword.html'),name='password_change'),
     path('comment/delete/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     path('search-users/', views.search_users, name='search_users'),
-
 ]

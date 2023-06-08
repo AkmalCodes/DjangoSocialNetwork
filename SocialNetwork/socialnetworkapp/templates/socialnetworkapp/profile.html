@@ -15,8 +15,9 @@
         <img
           src="{{ user.userprofile.profile_picture.url }}"
           alt="Profile Picture"
-          width="40px"
-          height="40px"
+          width="80px"
+          height="80px"
+          style="border-radius: 50%;"
         />
       </div>
       <div id="Full-Name1">
@@ -55,8 +56,11 @@
       <div id="Hobbies2">
         <p>{{ user.student.hobbies }}</p>
       </div>
-      <div id="password1">
-        <a href="{% url 'profile_edit' %}"><p>EDIT</p></a>
+      <div id="profileeditor1">
+        <a href="{% url 'profile_edit' %}"><p>edit profile </p></a>
+      </div>
+      <div id="profileeditor2">
+        <a href="{% url 'password_change' %}"><p>change password</p></a>
       </div>
       <div id="empty-div"></div>
     </div>

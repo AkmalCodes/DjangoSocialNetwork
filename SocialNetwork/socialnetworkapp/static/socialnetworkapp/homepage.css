@@ -696,6 +696,73 @@ main {
   width: 20%;
 }
 
+
+#profileEditform{
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  height: 500px;
+  width: 60%;
+  min-width: 30%;
+  display: grid;
+  padding:30px;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "editprofileheader"
+    "profilepicure"
+    "hobbies"
+    "oldpassword"
+    "newpassword1"
+    "newpassword2"
+    "saveprofile"
+    ;
+}
+
+#editprofileheader-grid{
+  grid-area: editprofileheader;
+  grid-column:1/11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilepicure{
+  grid-area: profilepicure;
+  grid-column: 4/8;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilepicure img{
+  margin: 20px;
+}
+
+.hobbies{
+  grid-area: hobbies;
+  grid-column:4/8;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hobbies-control{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#saveprofile{
+  grid-area: saveprofile;
+  grid-column: 4/8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #profile-grid {
   border-radius: 15px;
   background-color: rgb(255, 255, 255);
@@ -703,6 +770,7 @@ main {
   width: 40%;
   min-width: 30%;
   display: grid;
+  padding: 30px;
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
@@ -713,8 +781,8 @@ main {
     "Faculty1 Faculty2"
     "Major1 Major2"
     "Hobbies1 Hobbies2"
-    "password1 passwword1"
-    "empty-div empty-div";
+    "empty-div empty-div"
+    "password1 password2 ";
 }
 #profile-grid button {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
@@ -822,39 +890,48 @@ main {
   overflow: hidden;
 }
 
-#password1 {
+#profileeditor1 {
   grid-area: password1;
-  grid-column: 7/11;
-  overflow: display;
-  display: block;
-  padding: 10px 0;
+  grid-column: 3/9;
+  display: flex;
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
+}
 
-  justify-content: start;
-  flex-direction: column;
+#profileeditor2 {
+  grid-area: password2;
+  grid-column: 8/12;
+  display: flex;
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 #empty-div {
-  height: 10vh;
+  height: 4vh;
   grid-area: empty-div;
 }
-#password1 p {
+#profileeditor1 p,#profileeditor2 p {
   font-size: 12px;
   width: 60px;
   text-align: center;
 }
 
-#password1 a {
+#profileeditor1 a,#profileeditor2 a {
   background-color: #3ac5e0;
   position: absolute;
   align-items: center;
-  width: 60px;
-  height: 40px;
+  justify-content: center;
+  display: flex;
+  width: 90px;
+  height: 60px;
   transition: 0.5s ease-in-out;
   transform: translateX(-10px);
   border-radius: 15px;
 }
 
-#password1 a:hover {
+#profileeditor1 a:hover ,#profileeditor2 a:hover {
   background-color: #84ebff;
   font-size: 12px;
   align-items: center;
