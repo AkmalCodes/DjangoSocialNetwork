@@ -16,10 +16,11 @@
         <div class="posts-top">
           <div class="userimg">
             <a href="#">
-              <img src="{{ user.userprofile.profile_picture.url }}"
+              <img src="{{ post.uid.userprofile.profile_picture.url }}"
               alt="Profile Picture"
               width="40px"
-              height="40px">
+              height="40px"
+              style="border-radius: 50%;">
             </a>
           </div>
           <div class="post-user-docreation-tocreation">
@@ -43,8 +44,11 @@
         </div>
         <div class="reaction-bar">
             <p>
-              <button id="button">share</button>
-              <button id="submit">like</button>
+              <form action="{% url 'like_post'  post.pk %}" method="POST">
+              {% csrf_token %} 
+                  <button type="submit", name="post_id" value="{{ post.id }}" id="like">
+                    like</button>
+              </form>
               <button id="report">report</button>
               {% if post.uid == request.user %}
             <form class="form-delete_post" action="{% url 'delete_post' post.id %}" method="post" onsubmit="return confirmDelete();">
@@ -130,6 +134,9 @@
     justify-content: start;
     width: 100%;
     }
+    .upper p{
+      font-size:10px
+    }
 
     .comment p{
     margin:0 20px;
@@ -140,7 +147,9 @@
     align-items: center;
     justify-content: start;
     width: 100%;
-
+    }
+    .lower p{
+      font-weight:bold;
     }
     .comments{
       margin:0px auto;
@@ -203,6 +212,10 @@
       align-items: center;
       flex-direction: row;
       width:inherit;
+    }
+    #like{
+      margin:5px;
+      transform: translate(0 ,8.5px);
     }
   </style>
 

@@ -7,7 +7,7 @@ body::-webkit-scrollbar {
 
 /* Background color of the scrollbar track */
 body::-webkit-scrollbar-track {
-  background: #2e2e2e;
+  background: #6d6c6c;
 }
 
 /* Color of the scrollbar handle */
@@ -69,9 +69,11 @@ footer {
 }
 
 .footer-content {
+  position: relative;
   padding: 0 20rem;
   display: flex;
   justify-content: space-between;
+
   align-items: center;
 }
 
@@ -476,7 +478,6 @@ main {
   width: 100px;
 }
 
-
 #chatroomchats-container {
   width: 60%;
   height: 550px;
@@ -528,24 +529,49 @@ main {
   grid-template-areas:
     "chatroomchats1"
     "chatroomchats2"
-    "chatroomchats3"
-    ;
+    "chatroomchats3";
 }
 
-.chatroomchats-grid .chat-item1{
+.chatroomchats-grid .chat-item1 {
   text-align: right;
-  background-color:rgba(114, 248, 192, 0.589);
+  background-color: rgba(114, 248, 192, 0.589);
   border-radius: 20px;
-  padding:1px 30px;
-  margin:10px 10px 0 150px;
+  padding: 1px 30px;
+  margin: 10px 10px 0 150px;
+  display: flex;
+  align-items:end;
+  justify-content: end;
 }
 
-.chatroomchats-grid .chat-item2{
+.chat-item1 #img-holder{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(10px, -7px);
+}
+
+.chat-item2 #img-holder{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-10px, 7px);
+
+}
+
+.chat-item1 p,
+.chat-item2 p {
+  font-size: 10px;
+}
+
+.chatroomchats-grid .chat-item2 {
   text-align: left;
-  background-color:rgba(250, 108, 108, 0.336);
+  background-color: rgba(250, 108, 108, 0.336);
   border-radius: 20px;
-  padding:1px 30px;
-  margin:10px 150px 0 10px;
+  padding: 1px 30px;
+  margin: 10px 150px 0 10px;
+  display: flex;
+  align-items:start;
+  justify-content: start;
 }
 
 #chatroom-container {
@@ -591,8 +617,7 @@ main {
   grid-template-rows: auto;
   grid-template-areas:
     "nav"
-    "nav-right"
-    ;
+    "nav-right";
 }
 
 .chatroom-grid a {
@@ -648,7 +673,6 @@ main {
   border-bottom-right-radius: 50px;
 }
 
-
 #id-search {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
   height: 50px;
@@ -657,8 +681,6 @@ main {
   margin: 0 10px;
   border-radius: 50px;
 }
-
-
 
 #user-list {
   position: absolute;
@@ -696,38 +718,47 @@ main {
   width: 20%;
 }
 
-
-#profileEditform{
+#profileEditform {
   border-radius: 15px;
   background-color: rgb(255, 255, 255);
-  height: 500px;
+  height: 300px;
   width: 60%;
   min-width: 30%;
   display: grid;
-  padding:30px;
+  padding: 30px;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
     "editprofileheader"
     "profilepicure"
     "hobbies"
-    "oldpassword"
-    "newpassword1"
-    "newpassword2"
-    "saveprofile"
-    ;
+    "saveprofile";
 }
 
-#editprofileheader-grid{
+#editprofileheader-grid {
   grid-area: editprofileheader;
-  grid-column:1/11;
+  grid-column: 1/11;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.profilepicure{
+.profilepicure {
   grid-area: profilepicure;
+  grid-column: 4/8;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-30px);
+}
+
+.profilepicure img {
+  margin: 20px;
+}
+
+.hobbies {
+  grid-area: hobbies;
   grid-column: 4/8;
   flex-direction: column;
   display: flex;
@@ -735,27 +766,14 @@ main {
   align-items: center;
 }
 
-.profilepicure img{
-  margin: 20px;
-}
-
-.hobbies{
-  grid-area: hobbies;
-  grid-column:4/8;
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hobbies-control{
+.hobbies-control {
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#saveprofile{
+#saveprofile {
   grid-area: saveprofile;
   grid-column: 4/8;
   display: flex;
@@ -827,8 +845,8 @@ main {
 
 #Full-Name2 {
   grid-area: Full-Name2;
-  grid-column: 8/12;
-  overflow: hidden;
+  grid-column: 9/12;
+  overflow: visible;
 }
 #uid1 {
   grid-area: uid1;
@@ -838,8 +856,8 @@ main {
 
 #uid2 {
   grid-area: uid2;
-  grid-column: 8/12;
-  overflow: hidden;
+  grid-column: 9/12;
+  overflow: visible;
 }
 
 #Email1 {
@@ -850,8 +868,8 @@ main {
 
 #Email2 {
   grid-area: Email2;
-  grid-column: 8/12;
-  overflow: hidden;
+  grid-column: 9/12;
+  overflow: visible;
 }
 
 #Faculty1 {
@@ -862,8 +880,8 @@ main {
 
 #Faculty2 {
   grid-area: Faculty2;
-  grid-column: 8/12;
-  overflow: hidden;
+  grid-column: 9/12;
+  overflow: visible;
 }
 
 #Major1 {
@@ -874,8 +892,8 @@ main {
 
 #Major2 {
   grid-area: Major2;
-  grid-column: 8/12;
-  overflow: hidden;
+  grid-column: 9/12;
+  overflow: visible;
 }
 
 #Hobbies1 {
@@ -886,13 +904,13 @@ main {
 
 #Hobbies2 {
   grid-area: Hobbies2;
-  grid-column: 8/12;
-  overflow: hidden;
+  grid-column: 9/12;
+  overflow: visible;
 }
 
 #profileeditor1 {
   grid-area: password1;
-  grid-column: 3/9;
+  grid-column: 5/9;
   display: flex;
   margin: 30px;
   justify-content: center;
@@ -901,7 +919,7 @@ main {
 
 #profileeditor2 {
   grid-area: password2;
-  grid-column: 8/12;
+  grid-column: 6/12;
   display: flex;
   margin: 30px;
   justify-content: center;
@@ -912,13 +930,15 @@ main {
   height: 4vh;
   grid-area: empty-div;
 }
-#profileeditor1 p,#profileeditor2 p {
+#profileeditor1 p,
+#profileeditor2 p {
   font-size: 12px;
   width: 60px;
   text-align: center;
 }
 
-#profileeditor1 a,#profileeditor2 a {
+#profileeditor1 a,
+#profileeditor2 a {
   background-color: #3ac5e0;
   position: absolute;
   align-items: center;
@@ -929,12 +949,15 @@ main {
   transition: 0.5s ease-in-out;
   transform: translateX(-10px);
   border-radius: 15px;
+  border: 1px solid #3ac5e0;
 }
 
-#profileeditor1 a:hover ,#profileeditor2 a:hover {
+#profileeditor1 a:hover,
+#profileeditor2 a:hover {
   background-color: #84ebff;
   font-size: 12px;
   align-items: center;
+  border: 0.5px solid #75c2d3;
 }
 
 .emptyspace-posts {

@@ -2,28 +2,28 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    uid = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to='images/', null=True)
     faculty = models.CharField(max_length=255)
     hobbies = models.CharField(null=True, max_length=255)
     major = models.CharField(max_length=255)
 
     def __str__(self):
-        return str(self.user)  
+        return str(self.uid)  
    
 class Educator(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    uid = models.OneToOneField(User, on_delete=models.CASCADE)
     profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     
     def __str__(self):
-        return str(self.user)
+        return str(self.uid)
 
 class Student(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    uid = models.OneToOneField(User, on_delete=models.CASCADE)
     profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     
     def __str__(self):
-        return str(self.user)
+        return str(self.uid)
 
 class Announcement(models.Model):
     title = models.CharField(max_length=255)
@@ -55,7 +55,7 @@ class Post(models.Model):
     uid = models.ForeignKey(User, on_delete=models.CASCADE)
     created_date = models.DateField(auto_now=True)
     created_time = models.TimeField(auto_now=True)
-    reaction = models.IntegerField(null=True)
+    reaction = models.ManyToManyField(User, related_name='posts')
     
     def __str__(self):
         return str(self.title)

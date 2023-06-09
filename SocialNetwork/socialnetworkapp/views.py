@@ -1,4 +1,4 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
@@ -6,7 +6,7 @@ from django.contrib.auth import update_session_auth_hash,authenticate, login, lo
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import *
 from .forms import *
 
@@ -126,6 +126,11 @@ def post_detail_view(request, pk):
 
     return render(request, 'socialnetworkapp/postsview.html', {'post': post, 'comment_form': comment_form, 'comments': comments})
 
+def LikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.reaction.add(request.user)
+    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
+    
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -143,7 +148,8 @@ def add_chat(request, chatroom_id):
             chatroom=chatroom,
             uid=request.user
         )
-        return redirect('chatroomchats', chatroom_id=chatroom_id)
+        #return redirect('chatroomchats', chatroom_id=chatroom_id)
+        return HttpResponseRedirect(reverse('chatroomchats', args=[str(chatroom_id)]))
 
     return redirect('home')  # Redirect to home if it's not a POST request
 
@@ -155,8 +161,7 @@ def chatroom_chats(request, chatroom_id):
     context = {
         'chatroom': chatroom,
         'chats': chats,
-    }
-    
+    }    
     return render(request, 'socialnetworkapp/chatroomchats.html', context)
 
 @login_required

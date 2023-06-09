@@ -39,8 +39,6 @@
             <a href="{% url 'post_detail' post.id %}">
               <button id="comment">comment</button>
           </a>
-            <button id="button">share</button>
-            <button id="submit">like</button>
             <button id="report">report</button>
             {% if post.uid == request.user %}
             <form class="form-delete_post" action="{% url 'delete_post' post.id %}" method="post" onsubmit="return confirmDelete();">
