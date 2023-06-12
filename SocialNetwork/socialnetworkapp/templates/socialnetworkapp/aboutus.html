@@ -1,0 +1,16 @@
+{% load static %} {% load widget_tweaks %}
+<head>
+  <script src="{% static 'js/scripts.js' %}"></script>
+  {% block head %}
+
+  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  {% endblock %}
+</head>
+
+<body>
+    <header>{% include 'socialnetworkapp/navbar.html' %}</header>
+        <main>
+            
+        </main>    
+    <footer>{% include 'socialnetworkapp/footer.html' %}</footer>
+</body>

@@ -71,6 +71,9 @@
       {% for comment in comments %}
         <div class="comment">
           <div class="comments upper"> 
+            <p>{{ comment.content }}</p>
+          </div>
+          <div class="comments lower">
             <p>By: @{{ comment.uid.username }}</p>
             <p>Date: {{ comment.created_date }}</p>
             <p>Time: {{ comment.created_time }}</p>
@@ -80,9 +83,6 @@
                 <button id="delete" type="submit">Delete</button>
               </form>
             {% endif %}
-          </div>
-          <div class="comments lower">
-            <p>{{ comment.content }}</p>
           </div>
         </div>
       {% endfor %}
@@ -101,8 +101,6 @@
         return confirm("Are you sure you want to delete this post?"); // inbuilt browser pop-up
     }
   </script>
-
-
 
   <style>
 
@@ -135,7 +133,7 @@
     width: 100%;
     }
     .upper p{
-      font-size:10px
+      font-weight:bold;
     }
 
     .comment p{
@@ -149,7 +147,7 @@
     width: 100%;
     }
     .lower p{
-      font-weight:bold;
+      font-size:10px
     }
     .comments{
       margin:0px auto;
@@ -177,6 +175,8 @@
     }
     
     #delete {
+      position:relative;
+      top: 7px;
       background-color: #f55742;
       color: #fff;
       border: none;

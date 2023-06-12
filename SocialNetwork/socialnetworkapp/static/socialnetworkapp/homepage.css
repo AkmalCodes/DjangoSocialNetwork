@@ -73,13 +73,7 @@ footer {
   padding: 0 20rem;
   display: flex;
   justify-content: space-between;
-
   align-items: center;
-}
-
-.footer-section {
-  flex: 1;
-  margin: 0 10px;
 }
 
 .footer-section h3 {
@@ -89,6 +83,7 @@ footer {
 
 .footer-section p {
   margin-top: 6px;
+  font-size:10px;
 }
 
 .footer-section img {
@@ -111,19 +106,25 @@ nav {
   margin: auto 30px;
   padding: auto 0;
   display: flex;
+
 }
 
-.logo h1 {
-  right: 3%;
-  top: 3%;
+.logo h4 {
+  right: -100px;
+  top: 10px;
   margin: 0;
   position: absolute;
   overflow: hidden;
+  font-weight: bold;
+  font-size: 30px;
+  transition: ease-out 0.5s;
+}
+
+.logo h4:hover {
+  color:#62c0d3;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 30px;
   text-align: right;
 }
 
@@ -216,7 +217,7 @@ nav {
 .dropbtn {
   color: white;
   margin-left: 30px;
-  padding: 16px;
+  padding: 8px;
   font-size: 16px;
   border: none;
 }
@@ -242,11 +243,12 @@ nav {
   text-decoration: none;
   display: block;
   border-radius: 15px;
+  transition: 0.3s ease-out;
 }
 
 .dropdown-content a:hover {
   background-color: #ddd;
-  font-size: 18px;
+  padding-left: 20px;
   overflow: hidden;
 }
 
@@ -655,6 +657,17 @@ main {
   justify-content: start;
   align-items: center;
 }
+#chat a{
+  justify-content: center;
+  display:flex;
+  align-items: center;
+}
+#chat img{
+  width : 40px;
+  height :40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
 #chat h5 {
   padding-left: 5px;
@@ -845,7 +858,7 @@ main {
 
 #Full-Name2 {
   grid-area: Full-Name2;
-  grid-column: 9/12;
+  grid-column: 8/12;
   overflow: visible;
 }
 #uid1 {
@@ -856,7 +869,7 @@ main {
 
 #uid2 {
   grid-area: uid2;
-  grid-column: 9/12;
+  grid-column: 8/12;
   overflow: visible;
 }
 
@@ -868,7 +881,7 @@ main {
 
 #Email2 {
   grid-area: Email2;
-  grid-column: 9/12;
+  grid-column: 8/12;
   overflow: visible;
 }
 
@@ -880,7 +893,7 @@ main {
 
 #Faculty2 {
   grid-area: Faculty2;
-  grid-column: 9/12;
+  grid-column: 8/12;
   overflow: visible;
 }
 
@@ -892,7 +905,7 @@ main {
 
 #Major2 {
   grid-area: Major2;
-  grid-column: 9/12;
+  grid-column: 8/12;
   overflow: visible;
 }
 
@@ -904,13 +917,13 @@ main {
 
 #Hobbies2 {
   grid-area: Hobbies2;
-  grid-column: 9/12;
+  grid-column: 8/12;
   overflow: visible;
 }
 
 #profileeditor1 {
   grid-area: password1;
-  grid-column: 5/9;
+  grid-column: 3/9;
   display: flex;
   margin: 30px;
   justify-content: center;
@@ -919,7 +932,7 @@ main {
 
 #profileeditor2 {
   grid-area: password2;
-  grid-column: 6/12;
+  grid-column: 7/12;
   display: flex;
   margin: 30px;
   justify-content: center;
@@ -933,7 +946,6 @@ main {
 #profileeditor1 p,
 #profileeditor2 p {
   font-size: 12px;
-  width: 60px;
   text-align: center;
 }
 
