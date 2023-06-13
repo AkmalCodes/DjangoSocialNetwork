@@ -1,0 +1,47 @@
+{% load static %}
+{% load widget_tweaks %}
+
+
+<head>
+    {% block head %}
+    <link
+      rel="stylesheet"
+      href="{% static 'socialnetworkapp/homepage.css' %}"
+    />
+    {% endblock %}
+</head>
+<style>
+
+</style>
+
+
+<header>{% include 'socialnetworkapp/navbar.html' %}</header>
+<body>
+    <main>
+    <div class="createreport-wrapper">
+        <div class="post-head">
+            <h1>Create a Report</h1>
+        </div>
+        <div class="create-posts">
+            <form class="form-createreport" method="post" action="" onsubmit="return confirmCreate()">
+                {% csrf_token %}
+                {% render_field form.content rows="20" cols="20" placeholder=" Place your complaints here" class+="form-control" %}
+            <div class="bottom-container">
+                <input id="submit" type="submit" value="Submit" ;/>
+            </div>
+            </form>
+        </div>
+    </div>
+    </main>
+</body>
+
+<footer>
+    {% include 'socialnetworkapp/footer.html' %}
+</footer>
+
+
+<script >
+    function confirmCreate() {
+        return confirm("Are you sure you want to create this report?"); // inbuilt browser pop-up
+    }
+</script>

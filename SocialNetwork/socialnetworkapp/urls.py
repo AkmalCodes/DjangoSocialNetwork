@@ -6,13 +6,15 @@ from . import views
 urlpatterns = [
     path('', views.loginpage, name= 'login'),
     path('logout/', views.logoutuser, name= 'logout'),
+    path('aboutus/', views.aboutus, name= 'aboutus'),
     
-    #home
+    #home & Posts
     path('home', views.home, name="home"),
     path('createPost/', views.createPost, name="createPost"),
     path('post/<int:pk>/delete/', views.delete_post_view, name='delete_post'),
     path('post/<int:pk>/', views.post_detail_view, name='post_detail'),
     path('like/<int:pk>', views.LikeView, name='like_post'),
+    path('createReport/<int:post_id>', views.submit_report, name='createReport'),
     
     #chats 
     path('chatroom/', views.chatroom, name="chatroom"),

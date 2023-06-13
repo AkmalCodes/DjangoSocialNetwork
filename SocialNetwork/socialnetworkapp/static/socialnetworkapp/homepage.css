@@ -978,3 +978,66 @@ main {
 .emptyspace-posts1 {
   flex-grow: 2;
 }
+
+.aboutus1 {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding:30px;
+}
+
+.aboutus1 h2{
+  text-align: center;
+  color:#427883;
+}
+
+.aboutus1 ul{
+  list-style:none;
+}
+.aboutus1 li{
+  margin:5px 0;
+  margin-right:25px ;
+}
+
+.form-control{
+  margin:10px 15px;
+  padding:10px 15px;
+  resize:none;
+  width:90%;
+  border-radius:15px;
+}
+.createpost-wrapper , .createreport-wrapper{
+  border-radius:30px;
+  background-color: white;
+  width:50%;
+}
+
+.createpost-wrapper #submit , .createreport-wrapper  #submit{
+  background-color: #3ac5e0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submit:hover  {
+  background-color: #42d7f5;
+}
+
+.createpost-wrapper h1{
+  text-align: center;
+}
+
+.createreport-wrapper h1{
+  text-align: center;
+}
+
+.form-createreport{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -38,8 +38,10 @@
           <p>
             <a href="{% url 'post_detail' post.id %}">
               <button id="comment">comment</button>
-          </a>
-            <button id="report">report</button>
+            </a>
+            <a href="{% url 'createReport' post.id %}">
+            <button id="report">report</button> 
+            </a>
             {% if post.uid == request.user %}
             <form class="form-delete_post" action="{% url 'delete_post' post.id %}" method="post" onsubmit="return confirmDelete();">
             {% csrf_token %}

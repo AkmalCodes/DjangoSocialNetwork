@@ -25,17 +25,6 @@ class Student(models.Model):
     def __str__(self):
         return str(self.uid)
 
-class Announcement(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_date = models.DateField(auto_now=True)
-    created_time = models.TimeField(auto_now=True)
-    reaction = models.IntegerField(null=True)
-    
-    def __str__(self):
-        return str(self.title)
-
 class Chatroom(models.Model):
     uid = models.ForeignKey(User, on_delete=models.CASCADE,related_name='created_chatrooms')
     recipient = models.TextField()
@@ -74,9 +63,8 @@ class Report(models.Model):
     content = models.TextField()
     uid = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    announcement = models.ForeignKey(Announcement, on_delete=models.CASCADE)
     created_date = models.DateField(auto_now=True)
     created_time = models.TimeField(auto_now=True)
     
     def __str__(self):
-        return str(self.user)
+        return str(self.uid)

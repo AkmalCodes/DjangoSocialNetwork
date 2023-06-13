@@ -49,7 +49,9 @@
                   <button type="submit", name="post_id" value="{{ post.id }}" id="like">
                     like</button>
               </form>
-              <button id="report">report</button>
+              <a href="{% url 'createReport' post.id %}">
+              <button id="report">report</button> 
+              </a>
               {% if post.uid == request.user %}
             <form class="form-delete_post" action="{% url 'delete_post' post.id %}" method="post" onsubmit="return confirmDelete();">
             {% csrf_token %}

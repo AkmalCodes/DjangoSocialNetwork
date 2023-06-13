@@ -209,3 +209,24 @@ def search_users(request):
     users = User.objects.filter(username__icontains=search_query)
     user_list = [{'username': user.username} for user in users]
     return JsonResponse(user_list, safe=False)
+
+@login_required
+def submit_report(request, post_id):
+    post = get_object_or_404(Post,id=post_id)
+    form = SubmitReport()
+    if request.method == 'POST':
+        form = SubmitReport(request.POST)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.uid = request.user
+            report.post = post  # Set the post field to the retrieved post
+            report.save()
+            messages.success(request, "Report created successfully.")
+            return redirect('home')
+
+    context = {'form': form}
+    return render(request, 'socialnetworkapp/reportcreate.html', context)
+
+
+def aboutus(request):
+    return render (request, 'socialnetworkapp/aboutus.html')

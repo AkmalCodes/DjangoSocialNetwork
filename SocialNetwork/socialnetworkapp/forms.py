@@ -18,6 +18,11 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content']
+        
+class SubmitReport(forms.ModelForm):
+    class Meta:
+        model = Report
+        fields = ['content']
 
 class ChatroomForm(forms.ModelForm):
     class Meta:
