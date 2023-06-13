@@ -110,3 +110,13 @@ button:hover {
     text-decoration: none;
 }
 
+.sign-in-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.msg p{
+    color:rgb(236, 0, 0);
+}
+

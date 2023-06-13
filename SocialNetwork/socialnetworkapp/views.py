@@ -221,7 +221,6 @@ def submit_report(request, post_id):
             report.uid = request.user
             report.post = post  # Set the post field to the retrieved post
             report.save()
-            messages.success(request, "Report created successfully.")
             return redirect('home')
 
     context = {'form': form}
