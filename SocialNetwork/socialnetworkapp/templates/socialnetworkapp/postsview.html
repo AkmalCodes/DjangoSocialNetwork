@@ -3,8 +3,8 @@
 
 <head>
   {% block head %}
-
-  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  <script href="{% static '/js/script.js' %}"></script>
+  <link rel="stylesheet" href="{% static '/css/homepage.css' %}" />
   {% endblock %}
 </head>
 
@@ -97,12 +97,6 @@
   <footer>
     {% include 'socialnetworkapp/footer.html' %}
   </footer>
-
-  <script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete this post?"); // inbuilt browser pop-up
-    }
-  </script>
 
   <style>
 

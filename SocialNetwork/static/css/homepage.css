@@ -610,6 +610,7 @@ main {
   grid-column: 1/9;
   background-color: rgba(255, 255, 255, 0.712);
   height: 500px;
+
 }
 
 .chatroom-grid {
@@ -624,18 +625,30 @@ main {
 
 .chatroom-grid a {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-  width: 20%;
+  width: 35%;
   text-align: center;
   border-radius: 50px;
   background-color: rgb(255, 255, 255);
   border: 1px transparent;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+}
+
+.chatroom-grid h6 {
+  transition: ease-out 0.3s;
+}
+
+
+
+.chatroom-grid a:hover h6 {
+  padding-left: 5px;
 }
 
 .chatroom-grid a:hover {
-  background-color: rgba(176, 242, 255, 0.336);
-
   border-radius: 50px;
   cursor: pointer;
+  ;
 }
 
 .chatname-container {
@@ -657,11 +670,7 @@ main {
   justify-content: start;
   align-items: center;
 }
-#chat a{
-  justify-content: center;
-  display:flex;
-  align-items: center;
-}
+
 #chat img{
   width : 40px;
   height :40px;
@@ -1042,3 +1051,19 @@ main {
   flex-direction: column;
 }
 
+.aboutus1{
+  transition: ease-out 0.5s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.aboutus1:hover{
+  background-color: #222121;
+}
+
+.aboutus1:hover li {
+  color: #9cd5e0;
+}
+
+.aboutus1:hover h2 {
+  color: #4fbdd3;
+}

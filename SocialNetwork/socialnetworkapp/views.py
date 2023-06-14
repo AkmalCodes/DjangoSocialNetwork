@@ -83,7 +83,7 @@ def createChatroom(request):
                 chatroom = form.save(commit=False)
                 chatroom.uid = request.user
                 chatroom.save()
-                return redirect('home')
+                return redirect('chatroom')
             else:
                 form.add_error('recipient', 'Invalid recipient username.')
 
@@ -137,6 +137,14 @@ def delete_comment(request, comment_id):
     if request.method == 'POST' and request.user == comment.uid:
         comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+@login_required
+def delete_chatroom(request, chatroom_id):
+    chatroom = get_object_or_404(Chatroom, id=chatroom_id)
+    if request.method == 'POST' and ((request.user == chatroom.uid) or (request.user == chatroom.recipient)):
+        chatroom.delete()
+        return redirect('home')  # Redirect to the appropriate page after deleting the chatroom
+    return render(request, 'delete_chatroom.html', {'chatroom': chatroom})
 
 @login_required
 def add_chat(request, chatroom_id):

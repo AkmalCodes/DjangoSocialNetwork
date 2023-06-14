@@ -3,7 +3,13 @@
 <head>
   <title>College Social Network</title>
   {% block head %}
-  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  <link rel="stylesheet" href="{% static '/css/homepage.css' %}" async/>
+  <script href="{% static '/js/script.js' %}" >
+    
+function confirmDelete() {
+  return confirm("Are you sure you want to delete this post?"); // inbuilt browser pop-up
+}
+  </script>
   {% endblock %}
 </head>
 
@@ -24,6 +30,10 @@
             {% elif chatroom.recipient == request.user.username %}
             <a href="{% url 'chatroomchats' chatroom.id %}"><h6>{{ chatroom.uid }}</h6></a>
             {% endif %}
+            <form method="POST" action="{% url 'delete_chatroom' chatroom.id %}" onsubmit="return confirmDelete();">
+              {% csrf_token %}
+              <button id="deletechatroom" type="submit" value="Delete Chatroom"><img class="deleteimg" src="{% static '/images/delete.png' %}"></img></button> 
+          </form>
           {% endfor %}
         </div>
         
@@ -38,6 +48,17 @@
 <footer>{% include 'socialnetworkapp/footer.html' %}</footer>
 
 <style>
+  #deletechatroom:hover img{
+    content: url("{% static '/images/delete.gif' %}"); 
+  }
+  #deletechatroom{
+    border-radius: 40%;
+    border:none;
+    background-color:white;
+    position:relative;
+    top:-54px;
+    right:-80px;
+  }
   li{
     list-style:none;
   }

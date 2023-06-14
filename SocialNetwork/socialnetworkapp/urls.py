@@ -11,13 +11,14 @@ urlpatterns = [
     #home & Posts
     path('home', views.home, name="home"),
     path('createPost/', views.createPost, name="createPost"),
-    path('post/<int:pk>/delete/', views.delete_post_view, name='delete_post'),
+    path('post/delete/<int:pk>/', views.delete_post_view, name='delete_post'),
+    path('createReport/<int:post_id>', views.submit_report, name='createReport'),
     path('post/<int:pk>/', views.post_detail_view, name='post_detail'),
     path('like/<int:pk>', views.LikeView, name='like_post'),
-    path('createReport/<int:post_id>', views.submit_report, name='createReport'),
     
     #chats 
     path('chatroom/', views.chatroom, name="chatroom"),
+    path('chatroom/delete/<int:chatroom_id>/', views.delete_chatroom, name='delete_chatroom'),
     path('chatrooms/create/', views.chatroomform, name='create_chatroom'),
     path('chatrooms/chatroomform/', views.createChatroom, name='chatroomform'),
     path('chatrooms/', views.chatroomName, name='chatroomName'),

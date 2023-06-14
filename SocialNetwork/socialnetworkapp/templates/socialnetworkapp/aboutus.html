@@ -1,9 +1,9 @@
 {% load static %} {% load widget_tweaks %}
 <head>
-  <script src="{% static 'js/scripts.js' %}"></script>
+  
   {% block head %}
-
-  <link rel="stylesheet" href="{% static 'socialnetworkapp/homepage.css' %}" />
+  <script src="{% static '/js/script.js' %}"></script>
+  <link rel="stylesheet" href="{% static '/css/homepage.css' %}" />
   {% endblock %}
 </head>
 
@@ -12,12 +12,12 @@
         <main>
           <div class="container">
             <div class="aboutus1">
-              <h2>Team Members</h2>
+              <h2>Team Members:</h2>
                 <ul>
-                  <li><h3>Akmal Hisyam bin Tajjul Ariffin</h3> 1211300497@student.mmu.edu.my</li>
-                  <li><h3>Azmal Jahin Shahriar</h3> 1211300497@student.mmu.edu.my</li>
-                  <li><h3>Surrendar A/L Parthipan</h3> 1191103262@student.mmu.edu.my</li>
-                  <li><h3>Ainaa Athirah Binti Mat Rani</h3> 1181101741@student.mmu.edu.my</li>
+                  <li class="aboutusdetes"><h3>Akmal Hisyam bin Tajjul Ariffin</h3> 1211300497@student.mmu.edu.my</li>
+                  <li class="aboutusdetes"><h3>Azmal Jahin Shahriar</h3> 1211300497@student.mmu.edu.my</li>
+                  <li class="aboutusdetes"><h3>Surrendar A/L Parthipan</h3> 1191103262@student.mmu.edu.my</li>
+                  <li class="aboutusdetes"><h3>Ainaa Athirah Binti Mat Rani</h3> 1181101741@student.mmu.edu.my</li>
                 </ul>
             </div>
           </div>
