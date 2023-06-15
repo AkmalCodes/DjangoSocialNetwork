@@ -7,18 +7,23 @@ The features are:<br/>
 -logout<br/>
 -password recovery<br/>
 -Create Post<br/>
--view post --->comment on post<br/>
+-view post 
+--->comment on post<br/>
 -delete post<br/>
 -report post<br/>
 -like post<br/>
--create chatroom--->join chatroom<br/>
+-create chatroom
+--->join chatroom<br/>
 -delete chatroom<br/>
--view chatroom---> create chat<br/>
--Create User ---> Create User Profile (using django-admin)<br/>
+-view chatroom
+---> create chat<br/>
+-Create User 
+---> Create User Profile (using django-admin)<br/>
 -View User Profile<br/>
--update user profile ---> change password<br/>
-                     ---> change profile pict <br/>
-                     ---> update hobby (not implemented yet)<br/>
+-update user profile <br/>
+---> change password<br/>
+---> change profile pict <br/>
+---> update hobby (not implemented yet)<br/>
 <br/>
 
 
