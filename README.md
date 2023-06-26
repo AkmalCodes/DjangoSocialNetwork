@@ -43,7 +43,7 @@ INSTRUCTIONS ON HOW TO USE:(THIS PROJECT WAS MADE ON PYTHON VERSION 3+)<br/><br/
 <br/>
 <br/>
 4.IN THE SAME TERMINAL, RUN THE FOLLOWING CODE:<br/>
--->pip3 install requirements.txt<br/>
+-->pip install requirements.txt<br/>
 <br/>
 <br/>
 5.IN THE SAME TERMINAL, RUN THE FOLLOWING CODE:<br/>
